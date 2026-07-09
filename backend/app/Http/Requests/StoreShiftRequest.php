@@ -2,8 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Role;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreShiftRequest extends FormRequest
 {
@@ -25,8 +27,8 @@ class StoreShiftRequest extends FormRequest
         return [
             'day' => ['required', 'date'],
             'start_time' => ['required', 'date'],
-            'end_time' => ['required', 'date'],
-            'role' => ['required', 'date', 'after:start_time'],
+            'end_time' => ['required', 'date', 'after:start_time'],
+            'role' => ['required', Rule::enum(Role::class)],
             'staff_id' => ['nullable', 'exists:staff,id'],
         ];
     }

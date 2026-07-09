@@ -20,7 +20,7 @@ class ShiftController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreShiftRequest $request)
     {
         return Shift::create($request->validated());
     }
