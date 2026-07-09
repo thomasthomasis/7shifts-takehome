@@ -29,29 +29,29 @@ function StaffForm({ onStaffAdded }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form onSubmit={handleSubmit} className='flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end'>
+      <label className='flex flex-1 flex-col text-sm text-gray-700'>
         Name
-        <input value={name} onChange={(e) => setName(e.target.value)} required />
+        <input value={name} onChange={(e) => setName(e.target.value)} required className='mt-1 rounded border border-gray-300 px-3 py-2 focus:border-slate-500 focus:outline-none' />
       </label>
 
-      <label>
+      <label className='flex flex-col text-sm text-gray-700'>
         Role
-        <select value={role} onChange={(e) => setRole(e.target.value)}>
+        <select value={role} onChange={(e) => setRole(e.target.value)} className='mt-1 rounded border border-gray-300 px-3 py-2 focus:border-slate-500 focus:outline-none'>
           {ROLES.map((r) => (
             <option key={r} value={r}>{r}</option>
           ))}
         </select>
       </label>
 
-      <label>
+      <label className='flex flex-1 flex-col text-sm text-gray-700'>
         Phone
-        <input value={phone} onChange={(e) => setPhone(e.target.value)} required />
+        <input value={phone} onChange={(e) => setPhone(e.target.value)} required className='mt-1 rounded border border-gray-300 px-3 py-2 focus:border-slate-500 focus:outline-none' />
       </label>
 
-      {error && <p role="alert">{error}</p>}
+      {error && <p role="alert" className='text-sm text-red-600 sm:basis-full'>{error}</p>}
 
-      <button type="submit" disabled={submitting}>
+      <button type="submit" disabled={submitting} className='rounded bg-slate-800 px-4 py-2 text-white hover:bg-slate-700 disabled:opacity-50'>
         {submitting ? 'Adding...' : 'Add Staff Member'}
       </button>
     </form>
