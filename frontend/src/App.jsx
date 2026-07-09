@@ -41,7 +41,7 @@ function App() {
   return (
     <div className='flex min-h-screen flex-col bg-gray-50'>
       <Header />
-    <main className='mx-auto flex w-full max-w-5xl flex-1 flex-col gap-8 px-4 py-6 md:grid md:grid-cols-2 md:gap-6 md:items-start'>
+    <main className='mx-auto flex w-full max-w-7xl flex-1 flex-col gap-8 px-4 py-6 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-6 md:items-start'>
       <section className='rounded-lg bg-white p-4 shadow'>
         <h2 className='mb-4 text-xl font-semibold text-gray-800'>Staff</h2>
         {staffError && <p role="alert" className='mb-2 text-sm text-red-600'>{staffError}</p>}

@@ -4,7 +4,6 @@ import { createShift } from '../api';
 const ROLES = ['server', 'cook', 'manager'];
 
 function ShiftForm({ onShiftAdded }) {
-  const [day, setDay] = useState('');
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
   const [role, setRole] = useState(ROLES[0]);
@@ -18,12 +17,10 @@ function ShiftForm({ onShiftAdded }) {
 
     try {
       await createShift({
-        day,
         start_time: startTime,
         end_time: endTime,
         role,
       });
-      setDay('');
       setStartTime('');
       setEndTime('');
       setRole(ROLES[0]);
@@ -37,11 +34,6 @@ function ShiftForm({ onShiftAdded }) {
 
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end'>
-      <label className='flex flex-col text-sm text-gray-700'>
-        Day
-        <input type="date" value={day} onChange={(e) => setDay(e.target.value)} required className='mt-1 rounded border border-gray-300 px-3 py-2 focus:border-slate-500 focus:outline-none'/>
-      </label>
-
       <label className='flex flex-col text-sm text-gray-700'>
         Start Time
         <input
