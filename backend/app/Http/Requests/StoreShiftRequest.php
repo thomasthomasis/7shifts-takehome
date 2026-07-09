@@ -25,7 +25,6 @@ class StoreShiftRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'day' => ['required', 'date'],
             'start_time' => ['required', 'date'],
             'end_time' => ['required', 'date', 'after:start_time'],
             'role' => ['required', Rule::enum(Role::class)],
